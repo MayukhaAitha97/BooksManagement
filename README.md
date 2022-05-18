@@ -34,7 +34,6 @@ Given below are the instructions on how to run this project
 * Eclipse or any other IDE
 * Java 18
 * STS installed in IDE
-* ex. Windows 10
 
 ### Installing
 
