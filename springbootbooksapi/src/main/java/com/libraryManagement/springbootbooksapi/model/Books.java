@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class Books {
 @Id
 @Column
-private int isbn;
+private String isbn;
 
 @Column
 private String title;
@@ -22,10 +22,10 @@ private String author;
 private int price;
 @Column
 private String genre;
-public int getIsbn() {
+public String getIsbn() {
 	return isbn;
 }
-public void setIsbn(int isbn) {
+public void setIsbn(String isbn) {
 	this.isbn = isbn;
 }
 public String getTitle() {

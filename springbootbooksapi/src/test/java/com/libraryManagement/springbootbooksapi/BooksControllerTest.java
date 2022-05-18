@@ -41,7 +41,7 @@ public class BooksControllerTest {
     public void testGetBooks() throws Exception {
         List<Books> books = new ArrayList<>();
         Books book = new Books();
-        book.setIsbn(1);
+        book.setIsbn("978-3-16-148410-0");
         book.setAuthor("Jonathan Swift");
         book.setGenre("Adventure fiction");
         book.setTitle("Gulliver's Travels");
@@ -57,7 +57,7 @@ public class BooksControllerTest {
     public void testAddingBooks() throws Exception {
     	List<Books> books = new ArrayList<>();
         Books book = new Books();
-        book.setIsbn(1);
+        book.setIsbn("978-3-16-148410-0");
         book.setAuthor("Jonathan Swift");
         book.setGenre("Adventure fiction");
         book.setTitle("Gulliver's Travels");
@@ -79,7 +79,7 @@ public class BooksControllerTest {
     public void testUpdatingBooks() throws Exception {
     	List<Books> books = new ArrayList<>();
         Books book = new Books();
-        book.setIsbn(1);
+        book.setIsbn("978-3-16-148410-0");
         book.setAuthor("Jonathan Swift");
         book.setGenre("Adventure fiction");
         book.setTitle("Gulliver's Travels");
@@ -89,14 +89,14 @@ public class BooksControllerTest {
         String json = mapper.writeValueAsString(books);
         mockMvc.perform(put("/api/books").contentType(MediaType.APPLICATION_JSON).characterEncoding("utf-8")
                 .content(json).accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].isbn").value(1));
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].isbn").value("978-3-16-148410-0"));
     }
  
     //test for deleting books
     @Test
     public void testDeleteExample() throws Exception {
-    	List<Integer> isbns = new ArrayList<>();
-    	isbns.add(1);
+    	List<String> isbns = new ArrayList<>();
+    	isbns.add("978-3-16-148410-0");
         Mockito.when(booksService.deleteBooks(ArgumentMatchers.any())).thenReturn("Succesfully deleted the books from the library");
         
         String json = mapper.writeValueAsString(isbns);
@@ -111,7 +111,7 @@ public class BooksControllerTest {
     public void testGetBooksByAuthor() throws Exception {
         List<Books> books = new ArrayList<>();
         Books book = new Books();
-        book.setIsbn(1);
+        book.setIsbn("978-3-16-148410-0");
         book.setAuthor("Jonathan Swift");
         book.setGenre("Adventure fiction");
         book.setTitle("Gulliver's Travels");
@@ -131,7 +131,7 @@ public class BooksControllerTest {
     public void testGetBooksByTitle() throws Exception {
         List<Books> books = new ArrayList<>();
         Books book = new Books();
-        book.setIsbn(1);
+        book.setIsbn("978-3-16-148410-0");
         book.setAuthor("Jonathan Swift");
         book.setGenre("Adventure fiction");
         book.setTitle("Gulliver's Travels");
@@ -152,7 +152,7 @@ public class BooksControllerTest {
     public void testGetBooksByGenre() throws Exception {
         List<Books> books = new ArrayList<>();
         Books book = new Books();
-        book.setIsbn(1);
+        book.setIsbn("978-3-16-148410-0");
         book.setAuthor("Jonathan Swift");
         book.setGenre("Adventure fiction");
         book.setTitle("Gulliver's Travels");
@@ -173,7 +173,7 @@ public class BooksControllerTest {
     public void testGetBooksByPrice() throws Exception {
         List<Books> books = new ArrayList<>();
         Books book = new Books();
-        book.setIsbn(1);
+        book.setIsbn("978-3-16-148410-0");
         book.setAuthor("Jonathan Swift");
         book.setGenre("Adventure fiction");
         book.setTitle("Gulliver's Travels");
@@ -194,7 +194,7 @@ public class BooksControllerTest {
     public void testGetBooksByIsbn() throws Exception {
         
         Books book = new Books();
-        book.setIsbn(1);
+        book.setIsbn("978-3-16-148410-0");
         book.setAuthor("Jonathan Swift");
         book.setGenre("Adventure fiction");
         book.setTitle("Gulliver's Travels");
@@ -202,11 +202,11 @@ public class BooksControllerTest {
         
         int isbn = 1;
         
-        Mockito.when(booksService.getbyISBN(ArgumentMatchers.anyInt())).thenReturn(book);
+        Mockito.when(booksService.getbyISBN(ArgumentMatchers.any())).thenReturn(book);
         String json = mapper.writeValueAsString(isbn);
         mockMvc.perform(get("/api/book/isbn/{isbn}",1).contentType(MediaType.APPLICATION_JSON).characterEncoding("utf-8")
                 .content(json).accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk())
-        .andExpect(MockMvcResultMatchers.jsonPath("$.isbn").value(1));
+        .andExpect(MockMvcResultMatchers.jsonPath("$.isbn").value("978-3-16-148410-0"));
     }
   
   

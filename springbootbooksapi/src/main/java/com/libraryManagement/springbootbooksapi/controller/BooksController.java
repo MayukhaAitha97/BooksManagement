@@ -39,7 +39,7 @@ public class BooksController {
 		List<com.univocity.parsers.common.record.Record> parseAllRecords = parser.parseAllRecords(inputstream);
 		parseAllRecords.forEach(record->{
 			Books book = new Books();
-			book.setIsbn(Integer.parseInt(record.getString("isbn")));
+			book.setIsbn(record.getString("isbn"));
 			book.setAuthor(record.getString("author"));
 			book.setGenre(record.getString("genre"));
 			book.setPrice(Integer.parseInt(record.getString("price")));
@@ -66,7 +66,7 @@ public class BooksController {
 	
 	// getting book by mapping isbn from request
 	@GetMapping("/book/isbn/{isbn}")
-	public Books gettingByISBN(@PathVariable int isbn) {
+	public Books gettingByISBN(@PathVariable String isbn) {
 		return booksService.getbyISBN(isbn);
 	}
 	
@@ -102,7 +102,7 @@ public class BooksController {
 	
 	//deleting books using isbn from request
 	@DeleteMapping("/books")
-	public String  deletingBooks(@RequestBody List<Integer> isbns){
+	public String  deletingBooks(@RequestBody List<String> isbns){
 		return booksService.deleteBooks(isbns);
 	}
 	

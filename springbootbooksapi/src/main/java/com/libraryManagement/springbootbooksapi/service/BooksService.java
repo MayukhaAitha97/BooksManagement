@@ -33,7 +33,7 @@ public class BooksService {
 		return books;
 	}
 // getting books from library by isbn
-	public Books getbyISBN(int isbn) {
+	public Books getbyISBN(String isbn) {
 		return booksRepository.findById(isbn).get();
 	}
 // getting books from library by title
@@ -66,7 +66,7 @@ public class BooksService {
 		return books;	
 	}
 // deleting books from library
-	public String deleteBooks(List<Integer> isbns) {
+	public String deleteBooks(List<String> isbns) {
 		booksRepository.deleteAllById(isbns);
 		return "Succesfully deleted the books from the library";
 	}

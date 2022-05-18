@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.libraryManagement.springbootbooksapi.model.Books;
 
 @Repository
-public interface SearchRepository extends JpaRepository<Books, Integer>{
+public interface SearchRepository extends JpaRepository<Books, String>{
 	 List<Books> findByTitle(String title);
 	 List<Books> findByAuthor(String author);
 	 List<Books> findByPrice(int price);

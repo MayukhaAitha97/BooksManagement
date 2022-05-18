@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.libraryManagement.springbootbooksapi.model.Books;
 
 @Repository
-public interface BooksRepository extends CrudRepository<Books, Integer>{
+public interface BooksRepository extends CrudRepository<Books, String>{
 
 	
 }
